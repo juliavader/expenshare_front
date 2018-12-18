@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import{Row, Col,Container} from 'reactstrap'
-import moment from 'moment'
+import {NavLink, Route} from 'react-router-dom'
+import FormDepense from './FormDepense';
+
 export default class Depenses extends Component {
     
   render() {
@@ -16,9 +18,12 @@ export default class Depenses extends Component {
     return (
         
       <div>
-        {console.log(this.props)}
-       <h1>Mes dépenses</h1>
+        
+        <h1>Mes dépenses</h1>
+        <NavLink to = {this.props.url + '/Depenses/add'}>Ajouter une dépense</NavLink>
+        <Route path= {this.props.url + '/Depenses/add'} component={FormDepense}/>
        {date}
+
       </div>
     )
   }
