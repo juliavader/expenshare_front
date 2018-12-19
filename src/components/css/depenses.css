@@ -1,0 +1,28 @@
+.table thead th{
+    color: blueviolet;
+}
+.table{
+   
+    background: #f8f9fa;
+}
+.table tbody+tbody{
+    border-top: 2px solid #ffffff;
+}
+.table thead tr th{
+    border-bottom: 3px solid white !important
+}
+.secondtitle,
+tr, 
+Label{
+    color: #182A7A;
+}
+.ajout {
+    color: #182A7A;
+    font-weight: bold;
+    border: 1px solid blueviolet;
+}
+.addform{
+    background: blueviolet;
+    border: none;
+    font-weight: bold;
+}

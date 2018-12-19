@@ -1,0 +1,11 @@
+nav.principal{
+    background: #b589a2; /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #b589a2 10%, #2600ff 84%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #b589a2 10%,#2600ff 84%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #b589a2 10%,#2600ff 84%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b589a2', endColorstr='#2600ff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+     background-repeat: no-repeat;
+}
+button a {
+    color: #182A7A;
+}

@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+.groupform{
+    width: 70%;
+    height: 100%;
+    margin-top: 8vh;
+    padding-top: 7vh;
+    padding-bottom: 15vh;
+    background: #b589a2; /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #b589a2 10%, #2600ff 84%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #b589a2 10%,#2600ff 84%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #b589a2 10%,#2600ff 84%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b589a2', endColorstr='#2600ff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+     background-repeat: no-repeat;
+     width: 100%;
+    
+}
+
+
+.groupform Form{
+    margin-top: 4%;
+}
+
+#groupSlug{
+    width: 60%;
+    margin: 0 auto;
+}
+
+.titlegroup{
+    font-size: 2em;
+}
+.logo{
+    font-style: italic ; 
+    color: #fff;
+    font-size: 6em;
+}
+.smalllogo{
+    font-size: 2em;
+}
+NavbarBrand,
+.titlegroup,
+.buttongroup,
+.logo,
+h1, h2,h3,h4,h5,p,a,button, span{
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    
+    
+}

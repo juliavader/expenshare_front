@@ -3,7 +3,7 @@ import {Form, FormGroup, Input, Label, Container, Button} from 'reactstrap'
 import {Redirect} from 'react-router-dom'
 import Group from './Group';
 import CreateGroup from './CreateGroup';
-
+import './css/groupform.css'
 
 
 export default class GroupForm extends Component {
@@ -62,14 +62,17 @@ export default class GroupForm extends Component {
     return (
 
       
-        <Container>
-    
+        <Container className="groupform text-center">
+        <span className="logo ">$ </span>
         <Form onSubmit={e => this.handleLogin(e)}>
            <FormGroup>
-           <Label>Saisissez l'identifiant du groupe</Label>
-           <Input type="text" name="groupSlug" value={this.state.slug} onChange={e => this.handleChange(e)} id="groupSlug" placeholder="Groupe ID" />
-           <Button color="primary" onClick={e => this.handleCreate(e)}>Create</Button>
-           <Button color="primary" id='find' onClick={e => this.handleOpen(e)} > Find</Button>
+           <Label className="mb-3 mt-5 titlegroup text-white">Saisissez l'identifiant du groupe</Label>
+           <Input type="text" name="groupSlug" value={this.state.slug} onChange={e => this.handleChange(e)} id="groupSlug" placeholder="Rejoins ton groupe" />
+           <div className=" mt-3">
+           <Button color="primary" onClick={e => this.handleCreate(e)} className="mr-4 buttongroup">Create</Button>
+           <Button color="primary" id='find' onClick={e => this.handleOpen(e)} className="buttongroup"> Find</Button>
+           </div>
+           
            
            </FormGroup>
            

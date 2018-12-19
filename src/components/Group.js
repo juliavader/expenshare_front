@@ -3,7 +3,7 @@ import {Route} from 'react-router-dom'
 import Menu from './Menu';
 import Depenses from './Depenses';
 import Personnes from './Personnes';
-
+import './css/group.css'
 
 export default class Group extends Component {
 
@@ -45,15 +45,16 @@ componentDidMount() {
 
   
     return (
-     <div>
+     <div >
        
        <Menu url ={this.props.match.url}/>
       
-      <h1>Welcome in team  {this.props.match.params.slug}</h1>
+   
+      <h1 className='titlegroup'>Welcome in team  {this.props.match.params.slug}</h1>
       
        <Route path ={`${this.props.match.url}/Depenses`}render={(props) => <Depenses {...this.state } url={this.props.match.url}/>}/>
        <Route path ={`${this.props.match.url}/Personnes`} render={(props) => <Personnes {...this.state} url={this.props.match.url}/>}/>
-       
+      
      </div>
     )
   }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import './css/menu.css' 
 import {
     Navbar,
     NavbarBrand,
@@ -16,15 +16,15 @@ export default class Menu extends Component {
   render() {
     return (
         <div>
-            <Navbar color="secondary ">
+            <Navbar className="principal">
                 <NavbarBrand>
-                <i className="fa fa-bookmark"></i>
+               
+                <p className='text-white'> <i className="fa fa-bookmark logo smalllogo" >$  </i>   Expendshare</p>
                 </NavbarBrand>
                 <Nav >
-                   
-                    <NavItem className="mr-3"><Button color="dark"><Link to={`${this.props.url}`}className="text-white">Dashboard</Link></Button></NavItem>
-                    <NavItem className="mr-3"><Button color="dark"><Link to={`${this.props.url}/Depenses`}className="text-white">Dépenses</Link></Button></NavItem>
-                    <NavItem><Button color="dark"><Link to={`${this.props.url}/Personnes`}className="text-white">Personnes</Link></Button></NavItem>
+                    <NavItem className="mr-3"><Button color="light"><Link to={`${this.props.url}`}>Dashboard</Link></Button></NavItem>
+                    <NavItem className="mr-3"><Button color="light"><Link to={`${this.props.url}/Depenses`}>Dépenses</Link></Button></NavItem>
+                    <NavItem><Button color="light"><Link to={`${this.props.url}/Personnes`}>Personnes</Link></Button></NavItem>
                 </Nav>
             </Navbar>
       </div>

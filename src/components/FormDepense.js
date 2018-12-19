@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Form, FormGroup, Input, Label, Container, Button, Jumbotron} from 'reactstrap'
+import {Form, FormGroup, Input, Label, Button, Jumbotron} from 'reactstrap'
 import {Redirect} from 'react-router-dom'
 import Depenses from './Depenses';
 
@@ -39,7 +39,6 @@ export default class FormDepense extends Component {
       amount: e.target.value,
     });
   }
-
   handleChangeCat(event) {
     this.setState({ 
       selectedCatIndex: event.target.value,
@@ -69,7 +68,8 @@ export default class FormDepense extends Component {
       .then(data => {
         console.log(data);
         alert('Nouvelle dépense rajoutée !');
-        return <Redirect to={Depenses}/>
+        const { url } = this.props.match;
+        this.props.history.push(url.substring(0, url.lastIndexOf('/')));
       })
       .catch(err => alert('Erreur lors de la création d\'une nouvelle dépense'))
     ;
@@ -90,8 +90,8 @@ export default class FormDepense extends Component {
       <Jumbotron>
 
         
-        <h2>Rajouter une dépense</h2>
-        <Form onSubmit={e => this.handleLogin(e)}>
+        <h2 className="secondtitle ">Rajouter une dépense</h2>
+        <Form onSubmit={e => this.handleLogin(e)} className="mt-4">
 
         <FormGroup>
           <Label for="title_expense">Titre de la dépense</Label>
@@ -117,7 +117,7 @@ export default class FormDepense extends Component {
         </FormGroup>
 
       
-        <Button color="primary" onClick={e => this.handleCreate(e)} >Add</Button>
+        <Button className="addform" onClick={e => this.handleCreate(e)} >Add</Button>
 
     </Form>
     </Jumbotron>)

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import {Form, FormGroup, Input, Label, Container, Button, Jumbotron} from 'reactstrap'
-import Personnes from './Personnes';
-import {Link, Redirect} from 'react-router-dom'
+import {Form, FormGroup, Input, Label, Button, Jumbotron} from 'reactstrap'
+
 
 export default class FormPerson extends Component {
   constructor(props){
