@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import{Row, Col,Container} from 'reactstrap'
 import {NavLink, Route} from 'react-router-dom'
 import FormDepense from './FormDepense';
+import moment from 'moment'
 
 export default class Depenses extends Component {
     
@@ -12,7 +13,7 @@ export default class Depenses extends Component {
         <Col >{d.person.firstname} {d.person.lastname} </Col>
         <Col >{d.title}</Col>
         <Col  >{d.amount} €</Col>
-        <Col >{d.createdAt}</Col>
+        <Col >{moment(d.createdAt).format("MMM Do YY")}</Col>
       </Row>
       </Container>)
     return (

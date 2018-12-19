@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import {Form, FormGroup, Input, Label, Container, Button, Jumbotron} from 'reactstrap'
+import Personnes from './Personnes';
+import {Link, Redirect} from 'react-router-dom'
 
 export default class FormPerson extends Component {
   constructor(props){
     super(props)
-    this.state = {sharegroup: [], firstname: "",lastname: "", shared: ""
-  }}
+    this.state = {sharegroup: [], firstname: "",lastname: "", shared: "" }
+  }
 
   componentDidMount() {
     fetch('http://localhost:8888/expenshare_back/public/sharedgroup/',{
@@ -51,13 +53,15 @@ export default class FormPerson extends Component {
       .then(data => {
         console.log(data);
         alert('Nouvelle personne  créé avec succès !');
+        const { url } = this.props.match;
+        this.props.history.push(url.substring(0, url.lastIndexOf('/')));
       })
       .catch(err => alert('Erreur lors de la création d\'une nouvelle personne'))
     ;
   }
 
   render() {
-
+    
     const sharedgroup = this.state.sharegroup.map(p =>
         <option key={p.id} value={p.id}>{p.slug}</option>
     )

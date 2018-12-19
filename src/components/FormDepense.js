@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {Form, FormGroup, Input, Label, Container, Button, Jumbotron} from 'reactstrap'
 import {Redirect} from 'react-router-dom'
+import Depenses from './Depenses';
 
 export default class FormDepense extends Component {
   constructor(props){
@@ -68,11 +69,11 @@ export default class FormDepense extends Component {
       .then(data => {
         console.log(data);
         alert('Nouvelle dépense rajoutée !');
+        return <Redirect to={Depenses}/>
       })
       .catch(err => alert('Erreur lors de la création d\'une nouvelle dépense'))
     ;
 
-    return <Redirect to={'http://localhost:3000/Group/mexique/Depenses/'}/>
 
   }
 
