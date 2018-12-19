@@ -48,7 +48,6 @@ componentDidMount() {
      <div>
        
        <Menu url ={this.props.match.url}/>
-       {console.log(this.state)}
       
       <h1>Welcome in team  {this.props.match.params.slug}</h1>
       

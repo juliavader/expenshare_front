@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import{Row, Col,Container} from 'reactstrap'
+import {NavLink, Route} from 'react-router-dom'
+import FormPerson from './FormPerson';
 
 export default class Personnes extends Component {
   render() {
@@ -15,7 +17,10 @@ export default class Personnes extends Component {
     </Container>)
     return (
       <div>
-        
+          
+   
+        <NavLink to = {this.props.url + '/Personnes/add'}>Ajouter une personne</NavLink>
+        <Route path= {this.props.url + '/Personnes/add'} component={FormPerson}/>
         <h1>Personnes</h1>
         {person}
       </div>

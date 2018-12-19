@@ -23,7 +23,7 @@ export default class Depenses extends Component {
         <NavLink to = {this.props.url + '/Depenses/add'}>Ajouter une dépense</NavLink>
         <Route path= {this.props.url + '/Depenses/add'} component={FormDepense}/>
        {date}
-
+       
       </div>
     )
   }
