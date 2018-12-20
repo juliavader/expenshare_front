@@ -39,6 +39,18 @@ componentDidMount() {
             
 }
 
+handleDeletePerson(id) {
+  let persons = this.state.person;
+  persons = persons.filter(person => person.id != id);
+  this.setState({ person: persons });
+}
+
+
+handleDeleteExpense(id) {
+  let expenses = this.state.exps;
+  expenses = expenses.filter(exps => exps.id != id);
+  this.setState({ exps: expenses });
+}
 
 
   render() {
@@ -52,8 +64,8 @@ componentDidMount() {
    
       <h1 className='titlegroup'>Welcome in team  {this.props.match.params.slug}</h1>
       
-       <Route path ={`${this.props.match.url}/Depenses`}render={(props) => <Depenses {...this.state } url={this.props.match.url}/>}/>
-       <Route path ={`${this.props.match.url}/Personnes`} render={(props) => <Personnes {...this.state} url={this.props.match.url}/>}/>
+       <Route path ={`${this.props.match.url}/Depenses`}render={(props) => <Depenses {...this.state } deleteExpense={id => this.handleDeleteExpense(id)} url={this.props.match.url}/>}/>
+       <Route path ={`${this.props.match.url}/Personnes`} render={(props) => <Personnes {...this.state} deletePerson={id => this.handleDeletePerson(id)} url={this.props.match.url}/>}/>
       
      </div>
     )

@@ -5,18 +5,10 @@ import {Form, FormGroup, Input, Label, Button, Jumbotron} from 'reactstrap'
 export default class FormPerson extends Component {
   constructor(props){
     super(props)
-    this.state = {sharegroup: [], firstname: "",lastname: "", shared: "" }
+    this.state = {firstname: "",lastname: "", share: this.props.url.substring(7) }
   }
 
-  componentDidMount() {
-    fetch('http://localhost:8888/expenshare_back/public/sharedgroup/',{
-        method: 'GET', 
-        headers : {'X-Requested-With' : 'XMLHttpRequest'}
-    })
-        .then(response => response.json())
-    
-        .then(data => this.setState({ sharegroup: data}))
-}
+  
 
 
   handleChangeFn(e) {
@@ -29,11 +21,7 @@ export default class FormPerson extends Component {
       lastname: e.target.value,
     });
   }
-  handleChangeSg(e) {
-    this.setState({ 
-      shared: e.target.value,
-    });
-  }
+  
 
 
   handleCreate(event) {
@@ -43,7 +31,7 @@ export default class FormPerson extends Component {
       body: JSON.stringify({ 
         firstname: this.state.firstname,
         lastname: this.state.lastname,
-        sharedgroup: this.state.shared
+        sharedgroup: this.state.share
 
       })
       
@@ -52,26 +40,21 @@ export default class FormPerson extends Component {
       .then(data => {
         console.log(data);
         alert('Nouvelle personne  créé avec succès !');
-        const { url } = this.props.match;
-        this.props.history.push(url.substring(0, url.lastIndexOf('/')));
+        window.location.href = window.location.href.substr(0, window.location.href.length-3);
       })
       .catch(err => alert('Erreur lors de la création d\'une nouvelle personne'))
     ;
+ 
   }
 
   render() {
     
-    const sharedgroup = this.state.sharegroup.map(p =>
-        <option key={p.id} value={p.id}>{p.slug}</option>
-    )
-
     return (
       <Jumbotron>
-
-        {console.log(this.state)}
-        <h2>Rajouter une dépense</h2>
+ 
+        <h2>Rajouter une personne</h2>
         <Form onSubmit={e => this.handleLogin(e)}>
-
+      {console.log(this.state)}
         <FormGroup>
           <Label for="firstname">Firstname</Label>
           <Input type="text" name="firstname" id="firstname" placeholder="Prénom"  value={this.state.title} onChange={e => this.handleChangeFn(e)}/>
@@ -80,14 +63,8 @@ export default class FormPerson extends Component {
           <Label for="Lastname">Lastname</Label>
           <Input type="text" name="Lastname" id="Lastname" placeholder="nom"  value={this.state.title} onChange={e => this.handleChangeLn(e)}/>
         </FormGroup>
-        <FormGroup>
-          <Label for="exampleSelect">La Catégorie</Label>
-          <Input type="select" name="select" id="sharedgroup" onChange={e => this. handleChangeSg(e)}>
-            <option >Choisissez votre groupe</option>
-            {sharedgroup}
-          </Input>
-        </FormGroup>
       
+      {console.log(this.state)}
         <Button color="primary" onClick={e => this.handleCreate(e)} >Add</Button>
 
     </Form>

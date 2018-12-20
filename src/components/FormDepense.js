@@ -5,7 +5,7 @@ import Depenses from './Depenses';
 
 export default class FormDepense extends Component {
   constructor(props){
-    super(props)
+    super(props);
     this.state = {category: [], person: [], title: "", amount:"", selectedCatIndex:"", selectedPersIndex:""
   }}
 
@@ -18,8 +18,7 @@ export default class FormDepense extends Component {
     
         .then(data => this.setState({ category: data}))
   
-
-  fetch('http://localhost:8888/expenshare_back/public/person/',{
+  fetch('http://localhost:8888/expenshare_back/public/person'+this.props.url,{
         method: 'GET', 
         headers : {'X-Requested-With' : 'XMLHttpRequest'}
     })
@@ -68,13 +67,10 @@ export default class FormDepense extends Component {
       .then(data => {
         console.log(data);
         alert('Nouvelle dépense rajoutée !');
-        const { url } = this.props.match;
-        this.props.history.push(url.substring(0, url.lastIndexOf('/')));
+        window.location.href = window.location.href.substr(0, window.location.href.length-3);
       })
       .catch(err => alert('Erreur lors de la création d\'une nouvelle dépense'))
     ;
-
-
   }
 
   render() {
@@ -88,7 +84,6 @@ export default class FormDepense extends Component {
 
     return (
       <Jumbotron>
-
         
         <h2 className="secondtitle ">Rajouter une dépense</h2>
         <Form onSubmit={e => this.handleLogin(e)} className="mt-4">

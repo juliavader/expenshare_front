@@ -63,6 +63,7 @@ export default class GroupForm extends Component {
 
       
         <Container className="groupform text-center">
+        {console.log(this.props.match.params.slug)}
         <span className="logo ">$ </span>
         <Form onSubmit={e => this.handleLogin(e)}>
            <FormGroup>
